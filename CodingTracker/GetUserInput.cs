@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Globalization;
+
 namespace CodingTracker
 {
     internal class GetUserInput
@@ -49,7 +51,23 @@ namespace CodingTracker
         }
         private void ProcessAdd()
         {
-            //14:29 in video
+            var date = GetDateInput();
+        }
+
+        private string GetDateInput()
+        {
+            Console.WriteLine("\n\nPlease insert the date:  (Format: MM-DD-YY) Type 0 to return to the Main Menu.\n\n");
+
+            string dateInput = Console.ReadLine();
+            if (dateInput == "0") MainMenu();
+
+            while(!DateTime.TryParseExact(dateInput, "MM-dd-yy", new CultureInfo("en-US"), DateTimeStyles.None, out _))
+            {
+                Console.WriteLine("\n\nNot a valid date.  Please insert the4 date with the format:  MM-DD-YY.\n\n");
+                dateInput = Console.ReadLine();
+            }
+
+            return dateInput;
         }
     }
 }
