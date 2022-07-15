@@ -52,6 +52,26 @@ namespace CodingTracker
         private void ProcessAdd()
         {
             var date = GetDateInput();
+            var duration = GetDurationInput();
+
+            //video start here 20:26
+        }
+
+        internal string GetDurationInput()
+        {
+            Console.WriteLine("\n\nPlease enter the duration:  (Format: hh:mm) Type 0 to return to the Main Menu.\n\n");
+
+            string durationInput = Console.ReadLine();
+            if (durationInput == "0") MainMenu();
+
+            while (!TimeSpan.TryParseExact(durationInput, "hh\\:mm", CultureInfo.InvariantCulture, out _))
+            {
+                Console.WriteLine("\n\nDuration Invalid.  Please insert the duration: (Format: hh:mm) or type 0 to return to main menu.\n\n");
+                durationInput = Console.ReadLine();
+                if (durationInput == "0") MainMenu();
+            }
+
+            return durationInput;
         }
 
         private string GetDateInput()
@@ -63,8 +83,9 @@ namespace CodingTracker
 
             while(!DateTime.TryParseExact(dateInput, "MM-dd-yy", new CultureInfo("en-US"), DateTimeStyles.None, out _))
             {
-                Console.WriteLine("\n\nNot a valid date.  Please insert the4 date with the format:  MM-DD-YY.\n\n");
+                Console.WriteLine("\n\nNot a valid date.  Please insert the date with the format:  MM-DD-YY.\n\n");
                 dateInput = Console.ReadLine();
+                if (dateInput == "0") MainMenu();
             }
 
             return dateInput;
