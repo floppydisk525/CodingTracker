@@ -5,6 +5,7 @@ namespace CodingTracker
 {
     internal class GetUserInput
     {
+        CodingController codingController = new();
         internal void MainMenu()
         {
             bool closeApp = false;
@@ -54,7 +55,12 @@ namespace CodingTracker
             var date = GetDateInput();
             var duration = GetDurationInput();
 
-            //video start here 20:26
+            Coding coding = new Coding();
+
+            coding.Date = date;
+            coding.Duration = duration;
+
+            codingController.Post(coding);
         }
 
         internal string GetDurationInput()
