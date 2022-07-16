@@ -54,6 +54,9 @@ namespace CodingTracker
                     }
                 }
             }
+            TableVisualization.ShowTable(tableData);            
+
+            /*  //OLD way from Habit tracker...  I tried it, but not needed!
             Console.WriteLine("--------------------------------------------\n");
             Console.WriteLine("Id#  -  Date  -  Duration\n");
             foreach (var dw in tableData)
@@ -61,6 +64,7 @@ namespace CodingTracker
                 Console.WriteLine($"{dw.Id} - {dw.Date} - {dw.Duration} time");
             }
             Console.WriteLine("--------------------------------------------\n");
+            */
         }
     }
 }

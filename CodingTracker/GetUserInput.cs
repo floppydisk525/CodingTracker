@@ -33,13 +33,13 @@ namespace CodingTracker
                         Environment.Exit(0);
                         break;
                     case "1":
-                        //codingController.Get();
+                        codingController.Get();
                         break;
                     case "2":
                         ProcessAdd();
                         break;
                     case "3":
-                        //ProcessDelete();
+                        ProcessDelete();
                         break;
                     case "4":
                         //ProcessUpdate();
@@ -61,6 +61,11 @@ namespace CodingTracker
             coding.Duration = duration;
 
             codingController.Post(coding);
+        }
+
+        private void ProcessDelete()
+        {
+
         }
 
         internal string GetDurationInput()
