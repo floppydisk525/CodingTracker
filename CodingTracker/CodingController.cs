@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Configuration;
-using System.Globalization;
 using Microsoft.Data.Sqlite;
 
 namespace CodingTracker
@@ -65,6 +64,48 @@ namespace CodingTracker
             }
             Console.WriteLine("--------------------------------------------\n");
             */
+        }
+
+        internal Coding GetById(int id)
+        {
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                using(var tableCmd = connection.CreateCommand())
+                {
+                    connection.Open();
+
+                    tableCmd.CommandText = $"SELECT * FROM coding where Id = '{id}'";
+
+                    using (var reader = tableCmd.ExecuteReader())
+                    {
+                        Coding coding = new();
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            coding.Id = reader.GetInt32(0);
+                            coding.Date = reader.GetString(1);
+                            coding.Duration = reader.GetString(2);
+                        }
+                        Console.WriteLine("\n\n");
+                        return coding;
+                    }
+                }
+            }
+        }
+
+        internal void Delete(int id)
+        {
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                using (var tableCmd = connection.CreateCommand())
+                {
+                    connection.Open();
+                    tableCmd.CommandText = $"DELETE from coding WHERE Id = '{id}'";
+                    tableCmd.ExecuteNonQuery();
+
+                    Console.WriteLine($"\n\nRecord with Id {id} was deleted. \n\n");                    
+                }
+            }
         }
     }
 }

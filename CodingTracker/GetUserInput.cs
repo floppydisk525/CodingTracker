@@ -52,20 +52,41 @@ namespace CodingTracker
         }
         private void ProcessAdd()
         {
-            var date = GetDateInput();
-            var duration = GetDurationInput();
-
             Coding coding = new Coding();
 
-            coding.Date = date;
-            coding.Duration = duration;
+            coding.Date = GetDateInput();
+            coding.Duration = GetDurationInput();
 
             codingController.Post(coding);
         }
 
         private void ProcessDelete()
         {
+            Console.Clear();
+            codingController.Get();
 
+            Console.WriteLine("\nPlease enter the record ID of the record you want to delete or type 0 to go back to the main menu\n");
+            string commandInput = Console.ReadLine();
+
+            while(!Int32.TryParse(commandInput, out _) || string.IsNullOrEmpty(commandInput) || Int32.Parse(commandInput) < 0)
+            {
+                Console.WriteLine("\nYou have to type a valid Id (or 0 to return to Main Menu):\n");
+                commandInput = Console.ReadLine();
+            }
+            var id = Int32.Parse(commandInput);
+
+            if (id == 0) MainMenu();
+
+            var coding = codingController.GetById(id);
+
+            while (coding.Id == 0)
+            {
+                Console.WriteLine($"\nRecord with id {id} doesn't exist!\n");
+                Task.Delay(2000).Wait();
+                ProcessDelete();
+            }
+
+            codingController.Delete(id);
         }
 
         internal string GetDurationInput()
