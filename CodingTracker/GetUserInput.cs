@@ -42,7 +42,7 @@ namespace CodingTracker
                         ProcessDelete();
                         break;
                     case "4":
-                        //ProcessUpdate();
+                        ProcessUpdate();
                         break;
                     default:
                         Console.WriteLine("\nInvalid Command.  Please tyupe a number from 0 to 4.\n");
@@ -50,6 +50,73 @@ namespace CodingTracker
                 }                
             }
         }
+
+        private void ProcessUpdate()
+        {
+            Console.Clear();
+            codingController.Get();     //shows the database and the data in it.
+
+            Console.WriteLine("\nPlease enter the record ID of the record you want to UPDATE or type 0 to go back to the main menu\n");
+            string commandInput = Console.ReadLine();
+
+            while (!Int32.TryParse(commandInput, out _) || string.IsNullOrEmpty(commandInput) || Int32.Parse(commandInput) < 0)
+            {
+                Console.WriteLine("\nYou have to type a valid Id (or 0 to return to Main Menu):\n");
+                commandInput = Console.ReadLine();
+            }
+            var id = Int32.Parse(commandInput);
+
+            if (id == 0) MainMenu();
+
+            var coding = codingController.GetById(id);
+
+            while (coding.Id == 0)
+            {
+                Console.WriteLine($"\nRecord with id {id} doesn't exist!\n");
+                Task.Delay(2000).Wait();
+                ProcessUpdate();
+            }
+
+            var updateInput = "";
+
+            bool updating = true;
+            while (updating == true)
+            {
+                Console.WriteLine($"\nType 'd' for Date \n");
+                Console.WriteLine($"\nType 't' for Duration \n");
+                Console.WriteLine($"\nType 's' to save update \n");
+                Console.WriteLine($"\nType '0' to Go Back to Main Menu \n");
+
+                updateInput = Console.ReadLine();
+
+                switch (updateInput)
+                {
+                    case "d":
+                        coding.Date = GetDateInput();
+                        break;
+
+                    case "t":
+                        coding.Duration = GetDurationInput();
+                        break;
+
+                    case "0":
+                        MainMenu();
+                        updating = false;
+                        break;
+
+                    case "s":
+                        updating = false;
+                        break;
+
+                    default:
+                        Console.WriteLine($"\nType '0' to Go Back to Main Menu \n");
+                        break;
+                }
+            }
+            codingController.Update(coding);
+            MainMenu();
+        }
+
         private void ProcessAdd()
         {
             Coding coding = new Coding();
