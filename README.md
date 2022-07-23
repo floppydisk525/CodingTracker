@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=tvrfIMiG3-s&list=PL4G0MUH8YWiBxCvNXnGea4hyRX__uV
 
 This program is a very basic CRUD program that uses the console as the user interface.  There are a couple of packages (listed below) that help the programmer complete the program.  
 
-## Packages used in this program
+## NuGet Packages used in this program
 ### Configuration Manager
 System.Configureation.ConfigurationManager v6.0.0  
 
