@@ -23,6 +23,7 @@ In the code exmaple below, ConnectionString becomes a variable for the sqlite da
 ConsoleTableExt v3.2.0 
 The Console Table Extension will automatically format your data into a table in the console:  
 
+```
 ---------- Coding ----------  
 | Id | Date     | Duration |  
 ----------------------------  
@@ -32,6 +33,7 @@ The Console Table Extension will automatically format your data into a table in 
 ----------------------------  
 | 4  | 07-01-22 | 00:12    |  
 ----------------------------  
+```
 
 ### Sqlite DB  
 Sqlite DB v6.0.7  
