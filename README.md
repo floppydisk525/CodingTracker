@@ -4,6 +4,8 @@ Project 2 from The C# Academy: http://www.thecsharpacademy.com/coding-tracker/
 There is also a youtube video for this program:   
 https://www.youtube.com/watch?v=tvrfIMiG3-s&list=PL4G0MUH8YWiBxCvNXnGea4hyRX__uVg6-&index=3  
 
+This program is a very basic CRUD program interfaced with the console.  There are a couple of packages (listed below) that help the programmer complete the program.  
+
 ## Packages used in this program
 ### Configuration Manager
 System.Configureation.ConfigurationManager v6.0.0  
