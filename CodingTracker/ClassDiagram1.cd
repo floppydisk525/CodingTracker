@@ -1,31 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="CodingTracker.GetUserInput">
-    <Position X="1.25" Y="1.75" Width="2.25" />
+    <Position X="3.25" Y="2.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAABAAgAAAAAAAAQAAAQCAAAAAAAAAQAAAA=</HashCode>
       <FileName>GetUserInput.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CodingTracker.CodingController">
-    <Position X="4" Y="1.75" Width="2.5" />
+    <Position X="5.75" Y="2.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAhAAAAAAAAACAEAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>CodingController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CodingTracker.TableVisualization">
-    <Position X="2.25" Y="6" Width="1.5" />
+    <Position X="2.25" Y="5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TableVisualization.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CodingTracker.Program">
-    <Position X="5.25" Y="5.5" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodingTracker.DatabaseManager">
+    <Position X="1.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DatabaseManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
